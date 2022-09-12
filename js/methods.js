@@ -510,7 +510,7 @@ var premiumApi = {
         let clientId = a;
      
         let scopes = "data:read+data:write+bucket:read"
-        let redirectUri = encodeURI("http://localhost:5500")
+        let redirectUri = encodeURI("https://github.com/deepalics0044/forge-premium-remote-private")
         window.open(`https://developer.api.autodesk.com/authentication/v1/authorize` +
             `?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}`, "_self")
     },
