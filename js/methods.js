@@ -510,7 +510,7 @@ var premiumApi = {
         let clientId = a;
      
         let scopes = "data:read+data:write+bucket:read"
-        let redirectUri = encodeURI("https://github.com/deepalics0044/forge-premium-remote-private")
+        let redirectUri = encodeURI("https://deepalics0044.github.io/forge-premium-remote-private/")
         window.open(`https://developer.api.autodesk.com/authentication/v1/authorize` +
             `?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}`, "_self")
     },
@@ -522,7 +522,7 @@ var premiumApi = {
         console.log("logOut")
         if (premiumApi.access_token === "")
             return
-        let url = "https://github.com/deepalics0044/forge-premium-remote-private";
+        let url = "https://deepalics0044.github.io/forge-premium-remote-private/";
         location.href = url;
     },
 
