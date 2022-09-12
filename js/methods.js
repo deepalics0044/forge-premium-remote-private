@@ -522,7 +522,7 @@ var premiumApi = {
         console.log("logOut")
         if (premiumApi.access_token === "")
             return
-        let url = "http://localhost:5500";
+        let url = "https://github.com/deepalics0044/forge-premium-remote-private";
         location.href = url;
     },
 
