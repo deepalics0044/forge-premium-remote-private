@@ -1,0 +1,20 @@
+team_alias,offering_name,contract_number,subscription_id,term,start_date,end_date,autorenew_date,subscription_status,seat_quantity,reseller_email,reseller_name
+TS Organization,Architecture Engineering & Construction Collection,110003919438,572-91358736,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,1,,Autodesk Inc
+TS Organization,Architecture Engineering & Construction Collection,110003919438,572-91415352,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,99,,Autodesk Inc
+TS Organization,Assemble Office,110003831079,572-68808018,3 Years,2021-12-15 00:00,2024-12-14 00:00,,Active,100,,Autodesk Inc
+N/A,CFD - Ultimate,110003831079,,3 Years,2022-01-09 00:00,2024-12-14 00:00,,Active,10,,Autodesk Inc
+TS Organization,CFD - Ultimate,110003831079,572-73379785,3 Years,2022-01-12 00:00,2024-12-14 00:00,,Active,10,,Autodesk Inc
+TS Organization,Flex,110003926253,572-92633691,1 Year,2022-03-09 00:00,2023-03-08 00:00,,Active,Unlimited Seats,,Autodesk Australia P L
+TS Organization,Fusion 360,110003831079,572-72459374,3 Years,2022-01-09 00:00,2024-12-14 00:00,,Active,50,,Autodesk Inc
+TS Organization,Fusion 360 Manage - Enterprise,110003831079,572-72459473,3 Years,2022-01-09 00:00,2024-12-14 00:00,,Active,50,,Autodesk Inc
+TS Organization,InfoDrainage - Standard,110003919438,572-98809821,3 Years,2022-04-07 00:00,2025-03-01 00:00,,Active,50,,Autodesk Inc
+TS Organization,InfoDrainage - Ultimate,110003919438,572-99031931,3 Years,2022-04-08 00:00,2025-03-01 00:00,,Active,50,,Autodesk Inc
+TS Organization,InfoWater Pro,110003968910,573-01047848,3 Years,2022-04-14 00:00,2025-04-13 00:00,,Active,50,,Autodesk Inc
+TS Organization,InfoWorks ICM - Standard,110003919438,572-98809920,3 Years,2022-04-07 00:00,2025-03-01 00:00,,Active,50,,Autodesk Inc
+TS Organization,InfoWorks ICM - Ultimate,110003968910,573-01047947,3 Years,2022-04-14 00:00,2025-04-13 00:00,,Active,50,,Autodesk Inc
+TS Organization,Media & Entertainment Collection,110003919438,572-91358637,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,1,,Autodesk Inc
+TS Organization,Media & Entertainment Collection,110003919438,572-91415253,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,99,,Autodesk Inc
+TS Organization,Product Design & Manufacturing Collection,110003919438,572-91358835,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,1,,Autodesk Inc
+TS Organization,Product Design & Manufacturing Collection,110003919438,572-91415451,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,99,,Autodesk Inc
+TS Organization,ShotGrid - Subscription,110003919438,572-91415649,3 Years,2022-03-02 00:00,2025-03-01 00:00,,Active,10,,Autodesk Inc
+TS Organization,Vault Professional,110003831079,572-72459572,3 Years,2022-01-09 00:00,2024-12-14 00:00,,Active,50,,Autodesk Inc
