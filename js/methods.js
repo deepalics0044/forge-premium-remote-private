@@ -35,7 +35,7 @@ var premiumApi = {
                const context_id = (json1[0]||'').contextId;
            
               console.log("context id is"+context_id);
-        
+              setTimeout(() => {
         let user = {
             'fields': ['fullName', 'productName'],
             'metrics': ['earliestUsageDate', 'latestUsageDate', 'totalUniqueDays'],
@@ -54,6 +54,7 @@ var premiumApi = {
             },
             body: JSON.stringify(user)
         })
+        
             .then(res => res.text())
             .then(data => {
               
@@ -200,6 +201,7 @@ var premiumApi = {
                 },
                 body: JSON.stringify(user1)
             })
+
                 .then(res => res.text())
                 .then(data => {
                     let json3 = JSON.parse(data)
@@ -435,7 +437,8 @@ var premiumApi = {
                     })
                 })
             })
-            
+        
+        }, 5000);   
     },
    
    
