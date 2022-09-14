@@ -1,5 +1,5 @@
 document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"><\/script>';
-function ExportToTable() {
+ function ExportToTable() {
     var regex = /^([a-zA-Z0-9\s_\\.\-:()])+(.xlsx|.xls)$/;
     /*Checks whether the file is a valid excel file*/
     if (regex.test($("#excelfile").val().toLowerCase())) {
@@ -43,7 +43,7 @@ function ExportToTable() {
                     // if (exceljson.length > 0 && cnt == 2) {
                     //     BindTable(exceljson, '#usage');
                     // }
-                    //   //Download & View Metadata
+                      //Download & View Metadata
                     // if (exceljson.length > 0 && cnt == 3) {
                     //     BindTable(exceljson, '#metadata');
                     // }
@@ -127,147 +127,147 @@ function ExportToTable() {
                     //         });
                     // }
                     // //Download & View Subscription product usage by user per cost center
-                    // if (exceljson.length > 0 && cnt == 2) {
-                    //     metadata = [];
-                    //     fetch("metadata.json")
-                    //         .then(response => response.json())
-                    //         .then(json => {
-                    //             metadata = json;
-                    //             user_metadata = [], obj_m_processed = [];
-                    //             for (var i in exceljson) {
-                    //                 var obj = { autodesk_id: exceljson[i].autodesk_id,product_name: exceljson[i].product_name  };
-                    //                 for (var j in metadata) {
-                    //                     if (exceljson[i].autodesk_id == metadata[j].autodesk_id) {
-                    //                         obj.CC= metadata[j].CC;
-                    //                         obj_m_processed[metadata[j].autodesk_id] = true;
-                    //                     }
-                    //                 }
-                    //                 obj.CC= obj.CC|| '-';
-                    //                 user_metadata.push(obj);
-                    //             }
-                    //             for (var j in metadata) {
-                    //                 if (typeof obj_m_processed[metadata[j].autodesk_id] == 'undefined') {
-                    //                     user_metadata.push({ autodesk_id: metadata[j].autodesk_id,product_name: metadata[j].product_name, CC: metadata[j].CC});
-                    //                 }
-                    //             }
-                    //             document.getElementById("headings").innerHTML = "Cost Center";
-                    //             BindTable(user_metadata, '#costcenter');
-                    //              var createXLSLFormatObj = [];
-                    //      var xlsHeader = ["autodesk_id", "product_name","cost_center"];
-                    //      createXLSLFormatObj.push(xlsHeader);
-                    //      createXLSLFormatObj.push(user_metadata);
-                    //      $.each(user_metadata, function(index, value) {
-                    //          var innerRowData = [];
-                    //          $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
-                    //         $.each(value, function(ind, val) {
-                    //              innerRowData.push(val);
-                    //          });
-                    //          createXLSLFormatObj.push(innerRowData);
-                    //      });
-                    //      /* File Name */
-                    //      var filename = "costcenter.xlsx";
-                    //      /* Sheet Name */
-                    //      var ws_name = "costcenter";
-                    //      if (typeof console !== 'undefined') console.log(new Date());
-                    //      var wb = XLSX.utils.book_new(),
-                    //          ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
-                    //      /* Add worksheet to workbook */
-                    //      XLSX.utils.book_append_sheet(wb, ws, ws_name);
-                    //      /* Write workbook and Download */
-                    //      if (typeof console !== 'undefined') console.log(new Date());
-                    //      XLSX.writeFile(wb, filename);
-                    //      if (typeof console !== 'undefined') console.log(new Date());
-                    //         });
-                    // }
-                    // //Download & View license Purchased
+                    if (exceljson.length > 0 && cnt == 2) {
+                        metadata = [];
+                        fetch("metadata.json")
+                            .then(response => response.json())
+                            .then(json => {
+                                metadata = json;
+                                user_metadata = [], obj_m_processed = [];
+                                for (var i in exceljson) {
+                                    var obj = { autodesk_id: exceljson[i].autodesk_id,product_name: exceljson[i].product_name  };
+                                    for (var j in metadata) {
+                                        if (exceljson[i].autodesk_id == metadata[j].autodesk_id) {
+                                            obj.CC= metadata[j].CC;
+                                            obj_m_processed[metadata[j].autodesk_id] = true;
+                                        }
+                                    }
+                                    obj.CC= obj.CC|| '-';
+                                    user_metadata.push(obj);
+                                }
+                                for (var j in metadata) {
+                                    if (typeof obj_m_processed[metadata[j].autodesk_id] == 'undefined') {
+                                        user_metadata.push({ autodesk_id: metadata[j].autodesk_id,product_name: metadata[j].product_name, CC: metadata[j].CC});
+                                    }
+                                }
+                                document.getElementById("headings").innerHTML = "Cost Center";
+                                BindTable(user_metadata, '#costcenter');
+                                 var createXLSLFormatObj = [];
+                         var xlsHeader = ["autodesk_id", "product_name","cost_center"];
+                         createXLSLFormatObj.push(xlsHeader);
+                         createXLSLFormatObj.push(user_metadata);
+                         $.each(user_metadata, function(index, value) {
+                             var innerRowData = [];
+                             $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
+                            $.each(value, function(ind, val) {
+                                 innerRowData.push(val);
+                             });
+                             createXLSLFormatObj.push(innerRowData);
+                         });
+                         /* File Name */
+                         var filename = "costcenter.xlsx";
+                         /* Sheet Name */
+                         var ws_name = "costcenter";
+                         if (typeof console !== 'undefined') console.log(new Date());
+                         var wb = XLSX.utils.book_new(),
+                             ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+                         /* Add worksheet to workbook */
+                         XLSX.utils.book_append_sheet(wb, ws, ws_name);
+                         /* Write workbook and Download */
+                         if (typeof console !== 'undefined') console.log(new Date());
+                         XLSX.writeFile(wb, filename);
+                         if (typeof console !== 'undefined') console.log(new Date());
+                            });
+                    }
+                    //Download & View license Purchased
                  
-                    // if (exceljson.length > 0 && cnt == 0) {
-                    //     document.getElementById("headings1").innerHTML = "Licenses Purchased";
-                    //     BindTable(exceljson, '#exceltable');
-                    //     user_p = [];
-                    //     const count = {};
-                    //     for (var i in exceljson) {
-                    //         var obj = { team_alias: exceljson[i].team_alias,offering_name: exceljson[i].offering_name, seat_quantity: exceljson[i].seat_quantity };
-                    //         user_p.push(obj);
-                    //     }
+                    if (exceljson.length > 0 && cnt == 0) {
+                        document.getElementById("headings1").innerHTML = "Licenses Purchased";
+                        BindTable(exceljson, '#exceltable');
+                        user_p = [];
+                        const count = {};
+                        for (var i in exceljson) {
+                            var obj = { team_alias: exceljson[i].team_alias,offering_name: exceljson[i].offering_name, seat_quantity: exceljson[i].seat_quantity };
+                            user_p.push(obj);
+                        }
                         
-                    //     BindTable(user_p, '#license_purchased');
+                        BindTable(user_p, '#license_purchased');
 
                         
-                    //     var createXLSLFormatObj = [];
-                    //     var xlsHeader = ["team_alias", "offering_name","seat_quantity"];
-                    //     createXLSLFormatObj.push(xlsHeader);
-                    //     createXLSLFormatObj.push(user_p);
-                    //     $.each(user_p, function(index, value) {
-                    //         var innerRowData = [];
-                    //         $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
-                    //         $.each(value, function(ind, val) {
-                    //             innerRowData.push(val);
-                    //         });
-                    //         createXLSLFormatObj.push(innerRowData);
-                    //     });
-                    //     /* File Name */
-                    //     var filename = "license_purchased.xlsx";
-                    //     /* Sheet Name */
-                    //     var ws_name = "license_purchased";
-                    //     if (typeof console !== 'undefined') console.log(new Date());
-                    //     var wb = XLSX.utils.book_new(),
-                    //         ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
-                    //     /* Add worksheet to workbook */
-                    //     XLSX.utils.book_append_sheet(wb, ws, ws_name);
-                    //     /* Write workbook and Download */
-                    //     if (typeof console !== 'undefined') console.log(new Date());
-                    //     XLSX.writeFile(wb, filename);
-                    //     if (typeof console !== 'undefined') console.log(new Date());
+                        var createXLSLFormatObj = [];
+                        var xlsHeader = ["team_alias", "offering_name","seat_quantity"];
+                        createXLSLFormatObj.push(xlsHeader);
+                        createXLSLFormatObj.push(user_p);
+                        $.each(user_p, function(index, value) {
+                            var innerRowData = [];
+                            $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
+                            $.each(value, function(ind, val) {
+                                innerRowData.push(val);
+                            });
+                            createXLSLFormatObj.push(innerRowData);
+                        });
+                        /* File Name */
+                        var filename = "license_purchased.xlsx";
+                        /* Sheet Name */
+                        var ws_name = "license_purchased";
+                        if (typeof console !== 'undefined') console.log(new Date());
+                        var wb = XLSX.utils.book_new(),
+                            ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+                        /* Add worksheet to workbook */
+                        XLSX.utils.book_append_sheet(wb, ws, ws_name);
+                        /* Write workbook and Download */
+                        if (typeof console !== 'undefined') console.log(new Date());
+                        XLSX.writeFile(wb, filename);
+                        if (typeof console !== 'undefined') console.log(new Date());
 
 
 
 
-                    // }
-                    // //Download & View license  Assigned                
-                    // if (exceljson.length > 0 && cnt == 1) {
-                    //     document.getElementById("headings2").innerHTML = "License Assigned";
-                    //     user_l = [];
-                    //     const count = {};
-                    //     for (var i in exceljson) {
-                    //         count[exceljson[i].offering_name] = (count[exceljson[i].offering_name] || 0) + 1;
-                    //     }
-                    //     let count1 = JSON.stringify(count, null, 2)
-                    //     user_l.push(count);
-                    //     console.log(count1);
+                    }
+                    //Download & View license  Assigned                
+                    if (exceljson.length > 0 && cnt == 1) {
+                        document.getElementById("headings2").innerHTML = "License Assigned";
+                        user_l = [];
+                        const count = {};
+                        for (var i in exceljson) {
+                            count[exceljson[i].offering_name] = (count[exceljson[i].offering_name] || 0) + 1;
+                        }
+                        let count1 = JSON.stringify(count, null, 2)
+                        user_l.push(count);
+                        console.log(count1);
                     
-                    //     BindTable(user_l, '#license_assigned');
-                    //     var createXLSLFormatObj = [];
+                        BindTable(user_l, '#license_assigned');
+                        var createXLSLFormatObj = [];
                      
-                    //     var xlsHeader = ["Flex","Premium", "ArchitectureEngineering&ConstructionCollection","Assemble Office",	"CFD - Ultimate",	"Fusion 360 Manage - Enterprise",	"Product Design & Manufacturing Collection",
-                    //     	"Vault Professional",	"InfoDrainage - Ultimate",	"InfoWater Pro",	"InfoWorks ICM - Ultimate",
-                    //         	"Fusion 360"	,	"Media & Entertainment Collection",	"ShotGrid - Subscription"
-                    //     ];
-                    //     createXLSLFormatObj.push(xlsHeader);
-                    //     createXLSLFormatObj.push(user_l);
-                    //     $.each(user_l, function(index, value) {
-                    //         var innerRowData = [];
-                    //         $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
-                    //         $.each(value, function(ind, val) {
-                    //             innerRowData.push(val);
-                    //         });
-                    //         createXLSLFormatObj.push(innerRowData);
-                    //     });
-                    //     /* File Name */
-                    //     var filename = "license_assigned.xlsx";
-                    //     /* Sheet Name */
-                    //     var ws_name = "license_assigned";
-                    //     if (typeof console !== 'undefined') console.log(new Date());
-                    //     var wb = XLSX.utils.book_new(),
-                    //         ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
-                    //     /* Add worksheet to workbook */
-                    //     XLSX.utils.book_append_sheet(wb, ws, ws_name);
-                    //     /* Write workbook and Download */
-                    //     if (typeof console !== 'undefined') console.log(new Date());
-                    //     XLSX.writeFile(wb, filename);
-                    //     if (typeof console !== 'undefined') console.log(new Date());
+                        var xlsHeader = ["Flex","Premium", "ArchitectureEngineering&ConstructionCollection","Assemble Office",	"CFD - Ultimate",	"Fusion 360 Manage - Enterprise",	"Product Design & Manufacturing Collection",
+                        	"Vault Professional",	"InfoDrainage - Ultimate",	"InfoWater Pro",	"InfoWorks ICM - Ultimate",
+                            	"Fusion 360"	,	"Media & Entertainment Collection",	"ShotGrid - Subscription"
+                        ];
+                        createXLSLFormatObj.push(xlsHeader);
+                        createXLSLFormatObj.push(user_l);
+                        $.each(user_l, function(index, value) {
+                            var innerRowData = [];
+                            $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
+                            $.each(value, function(ind, val) {
+                                innerRowData.push(val);
+                            });
+                            createXLSLFormatObj.push(innerRowData);
+                        });
+                        /* File Name */
+                        var filename = "license_assigned.xlsx";
+                        /* Sheet Name */
+                        var ws_name = "license_assigned";
+                        if (typeof console !== 'undefined') console.log(new Date());
+                        var wb = XLSX.utils.book_new(),
+                            ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+                        /* Add worksheet to workbook */
+                        XLSX.utils.book_append_sheet(wb, ws, ws_name);
+                        /* Write workbook and Download */
+                        if (typeof console !== 'undefined') console.log(new Date());
+                        XLSX.writeFile(wb, filename);
+                        if (typeof console !== 'undefined') console.log(new Date());
                      
-                    // }
+                    }
 
 //Identify users on the same project(s) using different product version.
 if (exceljson.length > 0 && cnt == 2) {
