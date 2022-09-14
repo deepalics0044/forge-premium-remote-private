@@ -4,7 +4,7 @@ The sample helps viewing, building custom reports and exporting usage query  & e
 
 Uses 3-legged oAuth2 with implicit grant to authenticate with Forge. 
 
-![1663190060688](C:\Users\t_srivd\AppData\Roaming\Typora\typora-user-images\1663190060688.png)
+![1663190060688](template.png)
 
 ### Pre-requisites
 
@@ -35,7 +35,7 @@ Uses 3-legged oAuth2 with implicit grant to authenticate with Forge.
 
 - Click Go live to run live server.
 
-  ![1663191439013](C:\Users\t_srivd\AppData\Roaming\Typora\typora-user-images\1663191439013.png)
+  ![1663191439013](golive.png)
 
   
 
