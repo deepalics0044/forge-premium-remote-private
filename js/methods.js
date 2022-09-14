@@ -40,8 +40,8 @@ var premiumApi = {
             'fields': ['fullName', 'productName'],
             'metrics': ['earliestUsageDate', 'latestUsageDate', 'totalUniqueDays'],
             'where': '',
-            'orderBy': '',
-            'context': context_id
+            'orderBy': ''
+        
        
         }
         if (premiumApi.access_token === "")
@@ -186,8 +186,8 @@ var premiumApi = {
                 'fields': ['fullName', 'productName','usageMonth','tokens'],
                 'metrics': ['totalUniqueDays'],
                 'where': '',
-                'orderBy': '',
-                'context': context_id
+                'orderBy': ''
+                
                
             };
             if (premiumApi.access_token === "")
@@ -268,8 +268,8 @@ var premiumApi = {
                     'fields': ['fullName','usageMonth'],
                     'metrics': ['totalUniqueDays', 'uniqueProducts'],
                     'where': '',
-                    'orderBy': '',
-                    'context': context_id
+                    'orderBy': ''
+                    
                     
                 };
                 if (premiumApi.access_token === "")
@@ -323,8 +323,8 @@ var premiumApi = {
                         'fields': ['fullName'],
                         'metrics': ['totalUniqueDays', 'uniqueProducts'],
                         'where': '',
-                        'orderBy': '',
-                        'context': context_id
+                        'orderBy': ''
+                        
                     
                     };
                     if (premiumApi.access_token === "")
@@ -378,8 +378,8 @@ var premiumApi = {
                             'fields': ['fullName'],
                             'metrics': ['totalUniqueDays', 'uniqueProducts'],
                             'where': '',
-                            'orderBy': '',
-                            'context': context_id
+                            'orderBy': ''
+                           
                          
                         };
                         if (premiumApi.access_token === "")
