@@ -2,6 +2,7 @@ document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javasc
 
 
 var a;
+let context_id;
 var premiumApi = {
     "access_token": "",
     "LogIn": ["Log In", "Logged In"],
@@ -14,28 +15,29 @@ var premiumApi = {
         let logInButton = document.getElementById("LogIn")
         logInButton.innerText = (premiumApi.access_token) ? premiumApi.LogIn[1] : premiumApi.LogIn[0]
         console.log(premiumApi.access_token)
+        if (premiumApi.access_token === "")
+        return
+    fetch('https://developer.api.autodesk.com/insights/v1/contexts', {
+        headers: {
+            'Authorization': `Bearer ${premiumApi.access_token}`,
+            'Content-Type': 'application/json'
+           
+        }
+    })
+    
+        .then(res => res.text())
+        .then(data => {
+            let json1 = JSON.parse(data)
+          
+           
+           context_id = (json1[0]||'').contextId;
+       
+          console.log("context id is"+context_id);
+        })
     },
     "getusage":   function () {
        
-        if (premiumApi.access_token === "")
-            return
-        fetch('https://developer.api.autodesk.com/insights/v1/contexts', {
-            headers: {
-                'Authorization': `Bearer ${premiumApi.access_token}`,
-                'Content-Type': 'application/json'
-               
-            }
-        })
-        
-            .then(res => res.text())
-            .then(data => {
-                let json1 = JSON.parse(data)
-              
-               
-               const context_id = (json1[0]||'').contextId;
-           
-              console.log("context id is"+context_id);
-              setTimeout(() => {
+       
         let user = {
             'fields': ['fullName', 'productName'],
             'metrics': ['earliestUsageDate', 'latestUsageDate', 'totalUniqueDays'],
@@ -436,9 +438,7 @@ var premiumApi = {
                         })
                     })
                 })
-            })
         
-        }, 5000);   
     },
    
    
