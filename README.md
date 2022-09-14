@@ -1,43 +1,69 @@
 # Description
 
-This web application helps viewing and exporting usage data  in the form of tables,charts from Premium Reporting APIs.
+The sample helps viewing, building custom reports and exporting usage query  & export usage query API data in the form of tables, charts from Premium Reporting APIs.
+
+Uses 3-legged oAuth2 with implicit grant to authenticate with Forge. 
+
+![1663190060688](C:\Users\t_srivd\AppData\Roaming\Typora\typora-user-images\1663190060688.png)
 
 ### Pre-requisites
 
 - Forge Account: Learn how to create a Forge Account, activate subscription and create an app at [this tutorial](http://learnforge.autodesk.io/#/account/)
 
-  
+- Visual Studio Code 
+
+- Go Live Extension in Visual Studio Code.
+
+- Tested to be working on: Chrome, IE Edge
+
+
+- When logging into the web dashboard, you should login with the ID of an administrator with premium benefits (EBA).If you login with a user that does not have such roles, the API will return no data.
+
+
 
 ### Setup
 
-- Create a Forge App with access to the Premium Reporting API ![](screenshot1.png)
--  Use http://localhost:5500 as redirect URL in Forge App as well as in client code.
-- Clone or download the folder. Open the folder inside in Visual Studio Code.  It's recommended to install [GitHub desktop](https://desktop.github.com/). 
-- For this new App, you can use http://localhost:5500 as redirect URL.
-  Take note of the Client ID and Client Secret, those are your API keys that must remain hidden
+- Create a [Forge app](https://learnforge.autodesk.io/#/account/?id=create-an-app ) with access to the Premium Reporting API ![](screenshot1.png)
 
-![](screenshot2.png)
+- Take note of the Client ID which you need to enter as soon as you login.
+
+-  Use http://localhost:5500 as redirect URL in Forge App.
+
+- Clone or download the folder. Open the folder inside in Visual Studio Code.  
+
+- Use http://localhost:5500 as redirect URL in the js/method.js file.
+
+- Click Go live to run live server.
+
+  ![1663191439013](C:\Users\t_srivd\AppData\Roaming\Typora\typora-user-images\1663191439013.png)
+
+  
+
+### Meta Data Mapping
+
+
+- Save your metadata in the JSON format in the root folder. 
+- Here is the sample of metadata.
+- Make changes as per your mapping in js/jsonToTable.js file.
 
 
 
-- Update your client_id and client_secret in the login function of src/methods.js at line 373.
+### Deployment
 
+Deploy it using GitHub pages. Follow this [tutorial](https://www.youtube.com/watch?v=SKXkC4SqtRk)
 
+Note- As soon as you deploy it the redirect URL becomes the deployment domain.
 
+## Support
 
-> ```javascript
->                 let clientId = "ENTER YOUR CLIENT_ID HERE" 
->                 let clientSecret="ENTER YOUR CLIENT_SECRET HERE"
->                 let scopes = "data:read+data:write+bucket:read"
->                 let redirectUri = encodeURI("http://localhost:5500")
->                 window.open(`https://developer.api.autodesk.com/authentication/v1/authorize` +
->                     `?response_type=token&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes}`, "_self")
->             },
-> ```
+For support, please contact forge.help@autodesk.com.
 
-- Click Go live to run live server on index.html page
+## License
 
-- Click on Export all usage button to download xlsx file.
-- Upload the file to view a tabular representation of data inside the web application.
-- **Note: To view charts, you need to convert xlsx to csv https://cloudconvert.com/xlsx-to-csv and save it in the client code folder.**
+This sample is licensed under the terms of the [MIT License](https://tldrlegal.com/license/mit-license).
+Please refer to [LICENSE](LICENSE) for more details.
+
+## Written by
+
+Deepali Srivastava, Forge Partner Development Group
 

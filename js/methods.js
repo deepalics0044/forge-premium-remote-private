@@ -2,7 +2,7 @@ document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javasc
 
 
 var a;
-let context_id;
+let context_id="";
 var premiumApi = {
     "access_token": "",
     "LogIn": ["Log In", "Logged In"],
@@ -269,8 +269,8 @@ var premiumApi = {
                     
                 
                 let user2 = {
-                    'fields': ['fullName','usageMonth'],
-                    'metrics': ['totalUniqueDays', 'uniqueProducts'],
+                    'fields': ['fullName','productName','childProductName'],
+                    'metrics': [],
                     'where': '',
                     'orderBy': ''
                     
@@ -293,10 +293,10 @@ var premiumApi = {
                         if (result4 > 0) {
                             var temp3 = "";
                             temp3 += "<tr>";
-                            temp3 += "<th>" + "Flex users that are using 2+ products daily for more than 5 days per month" + "</th></a>";
-                            temp3 += "<th>" + "Usage Month" + "</th>";
-                            temp3 += "<th>" + "Total Unique Days" + "</th>";
-                            temp3 += "<th>" + "Unique Products" + "</th></tr>";
+                            temp3 += "<th>" + "Identify users who are using more than 1 product within a collection who are not currently assigned to a collection" + "</th></a>";
+                           
+                            temp3 += "<th>" + "Product Name" + "</th>";
+                            temp3 += "<th>" + "Child Product Name" + "</th></tr>";
                             document.getElementById("getData402").innerHTML = temp3;
                         }
                         var x = 0;
@@ -305,19 +305,18 @@ var premiumApi = {
                         if (r4 > 0) {
                             var y = 0;
                             var z = 0;
-                            var usageM = new Date(json4.rows[x][y + 1]);
+                          
                             json4.rows.forEach((u) => {
-                                if (json4.rows[x][y + 2] > 5) {
-                                    if (json4.rows[x][y + 3] > 2) {
+                                
                                         temp5 += "<tr>";
                                         temp5 += "<td>" + json4.rows[x][y] + "</td></a>";
-                                        temp5 += "<td>" + usageM.toDateString() + "</td>";
-                                        temp5 += "<td>" + json4.rows[x][y + 2] + "</td>";
+                                        
+                                        temp5 += "<td>" + json4.rows[x][y + 1] + "</td>";
                                       
-                                        temp5 += "<td>" + json4.rows[x][y + 3] + "</td></tr>";
+                                        temp5 += "<td>" + json4.rows[x][y + 2] + "</td></tr>";
                                     
-                                    }
-                                }
+                                    
+                                
                                 x = x + 1;
                             })
                         }
@@ -378,62 +377,7 @@ var premiumApi = {
                             }
                             document.getElementById("get209").innerHTML = temp5;
                         
-                        let user4 = {
-                            'fields': ['fullName'],
-                            'metrics': ['totalUniqueDays', 'uniqueProducts'],
-                            'where': '',
-                            'orderBy': ''
-                           
-                         
-                        };
-                        if (premiumApi.access_token === "")
-                            return
-                         fetch('https://developer.api.autodesk.com/insights/v1/usage-queries?offset=0&limit=2000&' + context_id, {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                                'Authorization': `Bearer ${premiumApi.access_token}`
-                            },
-                            body: JSON.stringify(user4)
-                        })
-                            .then(res => res.text())
-                            .then(data => {
-                                let json6 = JSON.parse(data)
-                                const result6 = (json6.columns || []).length;
-                             
-                                if (result6 > 0) {
-                                    var temp3 = "";
-                                    temp3 += "<tr>";
-                                    temp3 += "<th>" + "Identify users using more than 1 Hero product (autocad, revit, civil 3d, etc) and could benefit moving to Collection" + "</th></a>";
-                                  
-                                    temp3 += "<th>" + "Total Unique Days" + "</th>";
-                                    temp3 += "<th>" + "Unique Products" + "</th></tr>";
-                                    document.getElementById("collectionh").innerHTML = temp3;
-                                }
-                                var x = 0;
-                                var temp5 = "";
-                                const r6 = (json6.rows || []).length;
-                                if (r6 > 0) {
-                                    var y = 0;
-                                    var z = 0;
-                                   
-                                    json6.rows.forEach((u) => {
-                                        if (json6.rows[x][y + 1] <= 5) {
-                                            if (json6.rows[x][y + 2] ==1) {
-                                                temp5 += "<tr>";
-                                                temp5 += "<td>" + json6.rows[x][y] + "</td></a>";
-                                            
-                                                temp5 += "<td>" + json6.rows[x][y + 1] + "</td>";
-                                              
-                                                temp5 += "<td>" + json6.rows[x][y + 2] + "</td></tr>";
-                                            
-                                            }
-                                        }
-                                        x = x + 1;
-                                    })
-                                }
-                                document.getElementById("collectionr").innerHTML = temp5;
-                            })
+                     
                             })
                         })
                     })

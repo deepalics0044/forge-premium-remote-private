@@ -32,101 +32,101 @@ document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javasc
                         var exceljson = XLS.utils.sheet_to_row_object_array(workbook.Sheets[y]);
                     }
                      //Download & View Subscriptions
-                     if (exceljson.length > 0 && cnt == 0) {
-                        BindTable(exceljson, '#subscriptions');
-                    }
-                     //Download & View Users
-                     if (exceljson.length > 0 && cnt == 1) {
-                        BindTable(exceljson, '#users');
-                    }
-                    //Download & View Usage
-                    if (exceljson.length > 0 && cnt == 2) {
-                        BindTable(exceljson, '#usage');
-                    }
+                    //  if (exceljson.length > 0 && cnt == 0) {
+                    //     BindTable(exceljson, '#subscriptions');
+                    // }
+                    //  //Download & View Users
+                    //  if (exceljson.length > 0 && cnt == 1) {
+                    //     BindTable(exceljson, '#users');
+                    // }
+                    // //Download & View Usage
+                    // if (exceljson.length > 0 && cnt == 2) {
+                    //     BindTable(exceljson, '#usage');
+                    // }
                       //Download & View Metadata
-                    if (exceljson.length > 0 && cnt == 3) {
-                        BindTable(exceljson, '#metadata');
-                    }
-                    //Download & View Meta Data Linking
-                    if (exceljson.length > 0 && cnt == 1) {
-                        metadata = [];
-                        fetch("metadata.json")
-                            .then(response => response.json())
-                            .then(json => {
-                                metadata = json;
-                                console.log(metadata);
-                                user_metadata1 = [], obj_m_processed = [];
-                                for (var i in exceljson) {
-                                    var obj = { email: exceljson[i].email, name: exceljson[i].team_alias, id: exceljson[i].autodesk_id };
-                                    for (var j in metadata) {
-                                        if (exceljson[i].email == metadata[j].email) {
-                                            obj.GEO = metadata[j].GEO;
-                                            obj.COUNTRY = metadata[j].COUNTRY;
-                                            obj.CITY = metadata[j].CITY;
-                                            obj.PROJECT = metadata[j].PROJECT;
-                                            obj.DEPARTMENT = metadata[j].DEPARTMENT;
-                                            obj.CC=metadata[j].CC;
-                                          obj_m_processed[metadata[j].email] = true;
-                                        }
-                                    }
-                                    obj.GEO = obj.GEO || '-';
-                                    obj.COUNTRY = obj.COUNTRY || '-';
-                                    obj.CITY = obj.CITY || '-';
-                                    obj.PROJECT = obj.PROJECT || '-';
-                                    obj.DEPARTMENT = obj.DEPARTMENT || '-';
-                                    obj.CC = obj.CC || '-';
+                    // if (exceljson.length > 0 && cnt == 3) {
+                    //     BindTable(exceljson, '#metadata');
+                    // }
+                    // //Download & View Meta Data Linking
+                    // if (exceljson.length > 0 && cnt == 1) {
+                    //     metadata = [];
+                    //     fetch("metadata.json")
+                    //         .then(response => response.json())
+                    //         .then(json => {
+                    //             metadata = json;
+                    //             console.log(metadata);
+                    //             user_metadata1 = [], obj_m_processed = [];
+                    //             for (var i in exceljson) {
+                    //                 var obj = { email: exceljson[i].email, name: exceljson[i].team_alias, id: exceljson[i].autodesk_id };
+                    //                 for (var j in metadata) {
+                    //                     if (exceljson[i].email == metadata[j].email) {
+                    //                         obj.GEO = metadata[j].GEO;
+                    //                         obj.COUNTRY = metadata[j].COUNTRY;
+                    //                         obj.CITY = metadata[j].CITY;
+                    //                         obj.PROJECT = metadata[j].PROJECT;
+                    //                         obj.DEPARTMENT = metadata[j].DEPARTMENT;
+                    //                         obj.CC=metadata[j].CC;
+                    //                       obj_m_processed[metadata[j].email] = true;
+                    //                     }
+                    //                 }
+                    //                 obj.GEO = obj.GEO || '-';
+                    //                 obj.COUNTRY = obj.COUNTRY || '-';
+                    //                 obj.CITY = obj.CITY || '-';
+                    //                 obj.PROJECT = obj.PROJECT || '-';
+                    //                 obj.DEPARTMENT = obj.DEPARTMENT || '-';
+                    //                 obj.CC = obj.CC || '-';
                                          
-                                    user_metadata1.push(obj);
-                                }
-                                for (var j in metadata) {
-                                    if (typeof obj_m_processed[metadata[j].email] == 'undefined') {
-                                        user_metadata1.push({ email: metadata[j].email, name: metadata[j].name, id: metadata[j].autodesk_id,
-                                             GEO: metadata[j].GEO,
-                                             COUNTRY : metadata[j].COUNTRY,
-                                            CITY : metadata[j].CITY,
-                                            PROJECT : metadata[j].PROJECT,
-                                            DEPARTMENT : metadata[j].DEPARTMENT,
-                                            CC:metadata[j].CC
+                    //                 user_metadata1.push(obj);
+                    //             }
+                    //             for (var j in metadata) {
+                    //                 if (typeof obj_m_processed[metadata[j].email] == 'undefined') {
+                    //                     user_metadata1.push({ email: metadata[j].email, name: metadata[j].name, id: metadata[j].autodesk_id,
+                    //                          GEO: metadata[j].GEO,
+                    //                          COUNTRY : metadata[j].COUNTRY,
+                    //                         CITY : metadata[j].CITY,
+                    //                         PROJECT : metadata[j].PROJECT,
+                    //                         DEPARTMENT : metadata[j].DEPARTMENT,
+                    //                         CC:metadata[j].CC
                                          
                                             
                                         
                                         
                                         
                                         
-                                        });
-                                    }
-                                }
-                                document.getElementById("headings4").innerHTML = "MetaData Mapping";
-                               BindTable(user_metadata1, '#user_metadata1');
+                    //                     });
+                    //                 }
+                    //             }
+                    //             document.getElementById("headings4").innerHTML = "MetaData Mapping";
+                    //            BindTable(user_metadata1, '#user_metadata1');
 
-                                 var createXLSLFormatObj = [];
-                         var xlsHeader = ["email", "name","autodesk_id","GEO","COUNTRY","CITY","PORJECT","DEPARTMENT","COSTCENTER"];
-                         createXLSLFormatObj.push(xlsHeader);
-                         createXLSLFormatObj.push(user_metadata1);
-                         $.each(user_metadata1, function(index, value) {
-                             var innerRowData = [];
-                             $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
-                             $.each(value, function(ind, val) {
-                                innerRowData.push(val);
-                            });
-                             createXLSLFormatObj.push(innerRowData);
-                         });
+                    //              var createXLSLFormatObj = [];
+                    //      var xlsHeader = ["email", "name","autodesk_id","GEO","COUNTRY","CITY","PORJECT","DEPARTMENT","COSTCENTER"];
+                    //      createXLSLFormatObj.push(xlsHeader);
+                    //      createXLSLFormatObj.push(user_metadata1);
+                    //      $.each(user_metadata1, function(index, value) {
+                    //          var innerRowData = [];
+                    //          $("tbody").append('<tr><td>' + '</td><td>'+ '</td><td>'+'</td></tr>');
+                    //          $.each(value, function(ind, val) {
+                    //             innerRowData.push(val);
+                    //         });
+                    //          createXLSLFormatObj.push(innerRowData);
+                    //      });
                       
-                         var filename = "metadata.xlsx";
+                    //      var filename = "metadata.xlsx";
                  
-                         var ws_name = "metadata";
-                         if (typeof console !== 'undefined') console.log(new Date());
-                         var wb = XLSX.utils.book_new(),
-                             ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
+                    //      var ws_name = "metadata";
+                    //      if (typeof console !== 'undefined') console.log(new Date());
+                    //      var wb = XLSX.utils.book_new(),
+                    //          ws = XLSX.utils.aoa_to_sheet(createXLSLFormatObj);
                         
-                         XLSX.utils.book_append_sheet(wb, ws, ws_name);
+                    //      XLSX.utils.book_append_sheet(wb, ws, ws_name);
                       
-                         if (typeof console !== 'undefined') console.log(new Date());
-                         XLSX.writeFile(wb, filename);
-                         if (typeof console !== 'undefined') console.log(new Date());
-                            });
-                    }
-                    //Download & View Subscription product usage by user per cost center
+                    //      if (typeof console !== 'undefined') console.log(new Date());
+                    //      XLSX.writeFile(wb, filename);
+                    //      if (typeof console !== 'undefined') console.log(new Date());
+                    //         });
+                    // }
+                    // //Download & View Subscription product usage by user per cost center
                     if (exceljson.length > 0 && cnt == 2) {
                         metadata = [];
                         fetch("metadata.json")

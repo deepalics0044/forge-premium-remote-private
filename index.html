@@ -134,7 +134,7 @@
        
             <div id="demo21" class="collapse">
               
-              <h2 class="parastyle" id="headings4"> </h2>
+              <!-- <h2 class="parastyle" id="headings4"> </h2>
               <div class = "container">
                 <div class="outer-wrapper">
                   <div class="table-wrapper">
@@ -145,7 +145,7 @@
               </div>
               
               <br><br>
-              
+               -->
               
               <h2 class="parastyle" id="headings1"> </h2>
               <div class = "container">
@@ -280,34 +280,6 @@
     </div>
         <br><br>
         <br><br>
-        <br><br>
-        <div  id="demo2" class = "collapse">
-          <button onclick="ExportToExcel3('xlsx')">Export table to excel</button>
-          <script>
-            function ExportToExcel3(type, fn, dl) {
-                   
-                   var elt = getData403
-                   
-                   var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-                   return dl ?
-                  
-                     XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
-                     XLSX.writeFile(wb, fn || ('2+products.' + (type || 'xlsx')));
-                     
-                }
-       </script>
-          <div class="outer-wrapper">
-            <div class="table-wrapper">
-          <table  id="exceltable1"  >
-              <thead id="getData402" >
-              
-              </thead>
-              <tbody id="getData403">
-              </tbody>
-          </table>
-        </div></div>
-      </div>
-      <br><br>
         <div  id="demo4" class = "collapse" >
           <button onclick="ExportToExcel4('xlsx')">Export table to excel</button>
           <script>
@@ -336,37 +308,38 @@
           </table>
           </div></div>
       </div>
+        <br><br>
+        <div  id="demo2" class = "collapse">
+          <button onclick="ExportToExcel3('xlsx')">Export table to excel</button>
+          <script>
+            function ExportToExcel3(type, fn, dl) {
+                   
+                   var elt = getData403
+                   
+                   var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                   return dl ?
+                  
+                     XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
+                     XLSX.writeFile(wb, fn || ('2+products.' + (type || 'xlsx')));
+                     
+                }
+       </script>
+          <div class="outer-wrapper">
+            <div class="table-wrapper">
+          <table  id="exceltable1"  >
+              <thead id="getData402" >
+              
+              </thead>
+              <tbody id="getData403">
+              </tbody>
+          </table>
+        </div></div>
+      </div>
+      <br><br>
+        
           <br><br>
        
-          <br><br>
-          <div  id="demo5" class = "collapse" >
-            <button onclick="ExportToExcel5('xlsx')">Export table to excel</button>
-            <script>
-              function ExportToExcel5(type, fn, dl) {
-                     
-                     var elt = collectionr
-                     
-                     var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-                     return dl ?
-                    
-                       XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
-                       XLSX.writeFile(wb, fn || ('1heroproduct.' + (type || 'xlsx')));
-                       
-                  }
-         </script>
-            <div class="outer-wrapper">
-              <div class="table-wrapper">
-            <table  id="exceltable1"  >
-                <thead id="collectionh" >
-                
-                </thead>
-                <tbody id="collectionr">
-    
-                </tbody>
-    
-            </table>
-            </div></div>
-        </div>
+        
             <br><br>
         
         <br><br>
