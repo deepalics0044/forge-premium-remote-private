@@ -1,10 +1,17 @@
+
+![Platforms](https://img.shields.io/badge/platform-windows%20%7C%20osx%20%7C%20linux-lightgray.svg)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT)
+[![PremiumReporting](https://img.shields.io/badge/TokenFlex-v1-green.svg)](https://forge.autodesk.com/en/docs/insights/v1/developers_guide/overview/)
+![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Stackoverflow](https://img.shields.io/badge/ask-stackoverflow-yellow.svg)](https://stackoverflow.com/questions/ask?tags=%5bautodesk-forge)
+
 # Description
 
 The sample helps viewing, building custom reports and exporting usage query  & export usage query API data in the form of tables, charts from Premium Reporting APIs.
 
 Uses 3-legged oAuth2 with implicit grant to authenticate with Forge. 
 
-![1663190060688](template.png)
+![1663190060688](thumbnail.PNG)
 
 ### Pre-requisites
 
@@ -23,7 +30,7 @@ Uses 3-legged oAuth2 with implicit grant to authenticate with Forge.
 
 ### Setup
 
-- Create a [Forge app](https://learnforge.autodesk.io/#/account/?id=create-an-app ) with access to the Premium Reporting API ![](screenshot1.png)
+- Create a [Forge app](https://learnforge.autodesk.io/#/account/?id=create-an-app ) with access to the Premium Reporting API.
 
 - Take note of the Client ID which you need to enter as soon as you login.
 
