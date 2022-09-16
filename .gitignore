@@ -1,8 +1,6 @@
 index1.html
 .vscode/launch.json
-package-lock.json
 package.json
-package-lock-json
 metadata.xlsx
 
 **/node_modules
