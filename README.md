@@ -1,7 +1,6 @@
 
 ![Platforms](https://img.shields.io/badge/platform-windows%20%7C%20osx%20%7C%20linux-lightgray.svg)
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://opensource.org/licenses/MIT)
-[![PremiumReporting](https://img.shields.io/badge/TokenFlex-v1-green.svg)](https://forge.autodesk.com/en/docs/insights/v1/developers_guide/overview/)
 ![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 [![Stackoverflow](https://img.shields.io/badge/ask-stackoverflow-yellow.svg)](https://stackoverflow.com/questions/ask?tags=%5bautodesk-forge)
 
