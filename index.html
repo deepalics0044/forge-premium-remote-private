@@ -1,3 +1,20 @@
+<!-- /////////////////////////////////////////////////////////////////////
+// Copyright (c) Autodesk, Inc. All rights reserved
+// Written by Forge Partner Development
+//
+// Permission to use, copy, modify, and distribute this software in
+// object code form for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appears in all copies and
+// that both that copyright notice and the limited warranty and
+// restricted rights notice below appear in all supporting
+// documentation.
+//
+// AUTODESK PROVIDES THIS PROGRAM "AS IS" AND WITH ALL FAULTS.
+// AUTODESK SPECIFICALLY DISCLAIMS ANY IMPLIED WARRANTY OF
+// MERCHANTABILITY OR FITNESS FOR A PARTICULAR USE.  AUTODESK, INC.
+// DOES NOT WARRANT THAT THE OPERATION OF THE PROGRAM WILL BE
+// UNINTERRUPTED OR ERROR FREE.
+///////////////////////////////////////////////////////////////////// -->
 <html>
     <head>
          <meta charset="utf-8">
@@ -49,7 +66,8 @@
       </ul>
    <h3>Premium Reporting Sample 
    
-    <p id = "para"></p>
+     
+
 
       <button id="LogIn" onclick="premiumApi.client_id_value(),premiumApi.logIn()" class="buttonstyling" style='margin-right:16px'>LOG IN</button>
    
@@ -74,25 +92,27 @@
     </div>
   </div>
   
-  
+
+ 
+
   <div class="container">
   <br><br><br><br>               
     <ul class="breadcrumb">
-      <li><button id="GetUsageInformation" onclick="premiumApi.getusage()" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#demo, #demo1 ,#demo2 ,#demo3 ,#demo4,#demo5">Usage Data</button>  
+      <li><button id="GetUsageInformation" onclick="premiumApi.getusage()" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#demo, #demo1 ,#demo2 ,#demo3 ,#demo4,#demo5">Custom Usage Query API Data</button>  
       </li>
-      <li>        <button id="viewAllExport" onclick="premiumApi.viewallexport()" class="buttonstyle" >Download Export Data </button>
+      <li>        <button id="viewAllExport" onclick="premiumApi.viewallexport()" class="buttonstyle" >Download Export Usage Query API Data </button>
       </li>
-      <li > <input type="button" name="answer1" value="Use Cases" onclick="showDiv()" class="buttonstyle" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#usecases" /> 
+      <li > <input type="button" name="answer1" value="Custom Reports/ Meta Data Mapping" onclick="showDiv()" class="buttonstyle" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#usecases" /> 
       </li>
-        <li > <input type="button" name="answer2" value="Charts" onclick="showDiv()" class="buttonstyle" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#charts" /> 
+        <!-- <li > <input type="button" name="answer2" value="Charts" onclick="showDiv()" class="buttonstyle" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#charts" /> 
        </li>
       <li > <input type="button" name="answer3" value="PowerBI" onclick="showDiv()" class="buttonstyle" class="buttonstyle" class="buttonstyle btn btn-info"  data-toggle="collapse" data-target="#powerbi"/>
-      </li>   
+      </li>    -->
       
       
     </ul>
   </div>
-   
+  <p id = "para"></p>
        <div class="row"dump
 <div class="column">
     <div class="center">
@@ -192,7 +212,6 @@
                 </div>
        
         <div  id="demo" class = "collapse"  >
-          <button onclick="ExportToExcel('xlsx')">Export table to excel</button>
         <script>
              function ExportToExcel(type, fn, dl) {
                     
@@ -207,6 +226,8 @@
                  }
         </script>
           <div class="outer-wrapper">
+            <button onclick="ExportToExcel('xlsx')" style='margin-right:16px'>Export table to excel</button>
+
             <div class="table-wrapper">
             <table  id="exceltable1"  >
                 <thead id="activeh"  >
@@ -222,7 +243,7 @@
         
         <br><br>
         <div  id="demo1" class = "collapse"  >
-          <button onclick="ExportToExcel1('xlsx')">Export table to excel</button>
+         
           <script>
                function ExportToExcel1(type, fn, dl) {
                       
@@ -237,7 +258,9 @@
                    }
           </script>
           <div class="outer-wrapper">
+            <button onclick="ExportToExcel1('xlsx')">Export table to excel</button>
             <div class="table-wrapper">
+           
             <table  id="exceltable1"  >
                 <thead id="inactiveh" >
                 
@@ -251,7 +274,7 @@
      
       <br><br>
       <br><br>
-      <div  id="demo3" class = "collapse">
+      <!-- <div  id="demo3" class = "collapse">
         <button onclick="ExportToExcel2('xlsx')">Export table to excel</button>
         <script>
           function ExportToExcel2(type, fn, dl) {
@@ -277,10 +300,9 @@
         </table>
       </div></div>
     </div>
-        <br><br>
+        <br><br> -->
         <br><br>
         <div  id="demo4" class = "collapse" >
-          <button onclick="ExportToExcel4('xlsx')">Export table to excel</button>
           <script>
             function ExportToExcel4(type, fn, dl) {
                    
@@ -295,6 +317,8 @@
                 }
        </script>
           <div class="outer-wrapper">
+            <button onclick="ExportToExcel4('xlsx')">Export table to excel</button>
+
             <div class="table-wrapper">
           <table  id="exceltable1"  >
               <thead id="get208" >
@@ -309,7 +333,6 @@
       </div>
         <br><br>
         <div  id="demo2" class = "collapse">
-          <button onclick="ExportToExcel3('xlsx')">Export table to excel</button>
           <script>
             function ExportToExcel3(type, fn, dl) {
                    
@@ -319,11 +342,13 @@
                    return dl ?
                   
                      XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }):
-                     XLSX.writeFile(wb, fn || ('2+products.' + (type || 'xlsx')));
+                     XLSX.writeFile(wb, fn || ('standalone.' + (type || 'xlsx')));
                      
                 }
        </script>
           <div class="outer-wrapper">
+            <button onclick="ExportToExcel3('xlsx')">Export table to excel</button>
+
             <div class="table-wrapper">
           <table  id="exceltable1"  >
               <thead id="getData402" >
