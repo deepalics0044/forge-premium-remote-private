@@ -23,7 +23,7 @@ let context_id="";
 var premiumApi = {
     "access_token": "",
     "LogIn": ["Log In", "Logged In"],
-    "onLoad": function () {
+    "onLoad":  function () {
         console.log("onLoad")
         var url = new URL(window.location.href.replace('#', '?'))
         var query_string = url.search
@@ -48,6 +48,7 @@ var premiumApi = {
           
            
            context_id = (json1[0]||'').contextId;
+           
        
           console.log("context id is"+context_id);
         })
