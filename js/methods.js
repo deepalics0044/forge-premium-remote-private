@@ -53,8 +53,8 @@ var premiumApi = {
         })
     },
     "getusage": async function () {
-        await delay(5000);
-        console.log("Waited 2s");
+        await delay(1000);
+        console.log("Waited 1s");
        
         let user = {
             'fields': ['fullName', 'productName'],
