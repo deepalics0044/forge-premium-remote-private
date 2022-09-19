@@ -50,7 +50,6 @@ var premiumApi = {
            context_id = (json1[0]||'').contextId;
        
           console.log("context id is"+context_id);
-          document.getElementById("para1").innerHTML = context_id;
         })
     },
     "getusage":   function () {
