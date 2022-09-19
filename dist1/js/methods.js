@@ -17,7 +17,7 @@
 /////////////////////////////////////////////////////////////////////
 document.getElementsByTagName("head")[0].innerHTML += '<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"><\/script>';
 
-
+const delay = ms => new Promise(res => setTimeout(res, ms));
 var a;
 let context_id="";
 var premiumApi = {
@@ -52,8 +52,9 @@ var premiumApi = {
           console.log("context id is"+context_id);
         })
     },
-    "getusage":   function () {
-       
+    "getusage": async function () {
+        await delay(5000);
+        console.log("Waited 5s");
        
         let user = {
             'fields': ['fullName', 'productName'],
