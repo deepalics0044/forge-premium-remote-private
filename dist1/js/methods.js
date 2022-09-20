@@ -23,7 +23,7 @@ let context_id="";
 var premiumApi = {
     "access_token": "",
     "LogIn": ["Log In", "Logged In"],
-    "onLoad": function () {
+    "onLoad":  function () {
         console.log("onLoad")
         var url = new URL(window.location.href.replace('#', '?'))
         var query_string = url.search
@@ -48,13 +48,14 @@ var premiumApi = {
           
            
            context_id = (json1[0]||'').contextId;
+           
        
           console.log("context id is"+context_id);
+      
+       
         })
     },
-    "getusage": async function () {
-        await delay(1000);
-        console.log("Waited 1s");
+    "getusage":   async function () {
        
         let user = {
             'fields': ['fullName', 'productName'],
@@ -64,6 +65,7 @@ var premiumApi = {
         
        
         }
+        
         if (premiumApi.access_token === "")
             return
          fetch('https://developer.api.autodesk.com/insights/v1/usage-queries?offset=0&limit=2000&' + context_id, {
@@ -399,7 +401,7 @@ var premiumApi = {
                             })
                         })
                     })
-                
+                  
         
     },
    
@@ -493,10 +495,23 @@ var premiumApi = {
 
      "client_id_value": function() {
          a = prompt("Please enter client_id value");
+         try{
         if (a != null) {
         document.getElementById("para").innerHTML = a;
        
         }
-      }
+    }
+
+            catch(err)
+            {
+                document.getElementById("para1").innerHTML = err.name;
+            }
+        
+    
+   
+      
+    }
+
 }      
+
 

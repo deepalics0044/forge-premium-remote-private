@@ -51,12 +51,12 @@ var premiumApi = {
            
        
           console.log("context id is"+context_id);
+      
+       
         })
     },
     "getusage":   async function () {
        
-        await delay(5000);
-        console.log("Waited 5s");
         let user = {
             'fields': ['fullName', 'productName'],
             'metrics': ['earliestUsageDate', 'latestUsageDate', 'totalUniqueDays'],
@@ -65,6 +65,7 @@ var premiumApi = {
         
        
         }
+        
         if (premiumApi.access_token === "")
             return
          fetch('https://developer.api.autodesk.com/insights/v1/usage-queries?offset=0&limit=2000&' + context_id, {
@@ -400,7 +401,7 @@ var premiumApi = {
                             })
                         })
                     })
-                
+                  
         
     },
    
@@ -494,10 +495,22 @@ var premiumApi = {
 
      "client_id_value": function() {
          a = prompt("Please enter client_id value");
+         try{
         if (a != null) {
         document.getElementById("para").innerHTML = a;
        
         }
-      }
+    }
+
+            catch(err)
+            {
+                document.getElementById("para1").innerHTML = err.name;
+            }
+        
+    
+   
+      
+    }
+
 }      
 
